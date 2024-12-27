@@ -50,7 +50,7 @@ function animate() {
     });
     requestAnimationFrame(animate);
 }
-canvas.addEventListener("mouseclick", (e) => {
+canvas.addEventListener("click", (e) => {
     createFireworks(e.clientX, e.clientY);
 });
 animate();
