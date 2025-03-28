@@ -12,7 +12,7 @@ function create_gist(filename, content, access_token) {
 
     const GIST_API_URL = 'https://api.github.com/gists';
     const headers = {
-        'Authorization': `token ${access_token}`,
+        'Authorization': `Bearer ${access_token}`,
         'Content-Type': 'application/json'
     };
 
