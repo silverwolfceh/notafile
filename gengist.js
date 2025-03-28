@@ -13,7 +13,9 @@ function create_gist(filename, content, access_token) {
     const GIST_API_URL = 'https://api.github.com/gists';
     const headers = {
         'Authorization': `Bearer ${access_token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept' : 'application/vnd.github+json',
+        'X-GitHub-Api-Version' : '2022-11-28'
     };
 
     fetch(GIST_API_URL, {
@@ -38,6 +40,12 @@ function update_file_name(fname) {
     document.getElementById("fileName").value = fname;
 }
 $(document).ready(function () {
+    const access_token = new URLSearchParams(window.location.search).get("access_token");
+    if (access_token) {
+      console.log("Access token ready!");
+    } else {
+        document.location.href = "https://notafile.tongvuu.workers.dev";
+    }
     // File input change handler for Base64 conversion
     $('#fileInput').on('change', function () {
         const file = this.files[0];
